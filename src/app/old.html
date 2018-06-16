@@ -1,0 +1,180 @@
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-xs-6">
+            <h2>Radiant</h2>
+            {{ match.teamRadiant.totalInfluence }}
+
+            <h3>Heroes</h3>
+            <hr>
+            <div class="cf hero" *ngFor="let player of match.teamRadiant.players">
+
+                <h3>{{ player.player.name }}</h3>
+                <h4>{{ player.hero.heroInfo.name }}({{ player.hero.heroInfo.heroID }})</h4>
+
+                <div class="row">
+                    <div class="col-xs-6">
+                        <h4>Matchups</h4>
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    Hero ID
+                                </th>
+                                <th>
+                                    Influence
+                                </th>
+                            </tr>
+                            <tr *ngFor="let matchup of player.hero.matchups">
+                                <td>
+                                    {{ matchup.targetHeroID }}
+                                </td>
+                                <td>
+                                    {{ matchup.advantage }}
+                                </td>
+                            </tr>
+                        </table>
+                        Total: {{ player.hero.influenceMatchups }}
+                    </div>
+
+
+                    <div class="col-xs-6">
+                        <h4>Skills</h4>
+                        <table class="table">
+                            <tr>
+                                <th>Skill</th>
+                                <th>Player</th>
+                                <th>Hero</th>
+                                <th>IM%</th>
+                            </tr>
+                            <tr>
+                                <td>Efficiency</td>
+                                <td>{{ player.player.efficiency }}</td>
+                                <td>{{ player.hero.heroInfo.efficiency }}</td>
+                                <td>{{ player.hero.influenceEfficiencyModifier }}</td>
+                            </tr>
+                            <tr>
+                                <td>Poise</td>
+                                <td>{{ player.player.poise }}</td>
+                                <td>{{ player.hero.heroInfo.poise }}</td>
+                                <td>{{ player.hero.influencePoiseModifier }}</td>
+                            </tr>
+                            <tr>
+                                <td>Speed</td>
+                                <td>{{ player.player.speed }}</td>
+                                <td>{{ player.hero.heroInfo.speed }}</td>
+                                <td>{{ player.hero.influenceSpeedModifier }}</td>
+                            </tr>
+                            <tr>
+                                <td>Positioning</td>
+                                <td>{{ player.player.positioning }}</td>
+                                <td>{{ player.hero.heroInfo.positioning }}</td>
+                                <td>{{ player.hero.influencePositioningModifier }}</td>
+                            </tr>
+                            <tr>
+                                <td>Awareness</td>
+                                <td>{{ player.player.awareness }}</td>
+                                <td>{{ player.hero.heroInfo.awareness }}</td>
+                                <td>{{ player.hero.influenceAwarenessModifier }}</td>
+                            </tr>
+                        </table>
+                        Total: {{ player.hero.influenceTotalModifier }}
+                    </div>
+                </div>
+
+                <div>
+                    Influence: {{ player.influence }}
+                </div>
+                <hr>
+            </div>
+        </div>
+
+        <div class="col-xs-6">
+            <h2>Dire</h2>
+            {{ match.teamDire.totalInfluence }}
+
+            <h3>Heroes</h3>
+            <hr>
+            <div class="cf hero" *ngFor="let player of match.teamDire.players">
+                <h3>{{ player.player.name }}</h3>
+                <h4>{{ player.hero.heroInfo.name }}({{ player.hero.heroInfo.heroID }})</h4>
+
+                <div class="player">
+
+
+                    {{ player.hero.playedByPlayerID }}
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <h4>Matchups</h4>
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    Hero ID
+                                </th>
+                                <th>
+                                    Influence
+                                </th>
+                            </tr>
+                            <tr *ngFor="let matchup of player.hero.matchups">
+                                <td>
+                                    {{ matchup.targetHeroID }}
+                                </td>
+                                <td>
+                                    {{ matchup.advantage }}
+                                </td>
+                            </tr>
+                        </table>
+                        Total: {{ player.hero.influenceMatchups }}
+                    </div>
+
+                    <div class="col-xs-6">
+                        <h4>Stats</h4>
+                        <table class="table">
+                            <tr>
+                                <th>Skill</th>
+                                <th>Player</th>
+                                <th>Hero</th>
+                                <th>IM%</th>
+                            </tr>
+                            <tr>
+                                <td>Efficiency</td>
+                                <td>{{ player.player.efficiency }}</td>
+                                <td>{{ player.hero.heroInfo.efficiency }}</td>
+                                <td>{{ player.hero.influenceEfficiencyModifier }}</td>
+                            </tr>
+                            <tr>
+                                <td>Poise</td>
+                                <td>{{ player.player.poise }}</td>
+                                <td>{{ player.hero.heroInfo.poise }}</td>
+                                <td>{{ player.hero.influencePoiseModifier }}</td>
+                            </tr>
+                            <tr>
+                                <td>Speed</td>
+                                <td>{{ player.player.speed }}</td>
+                                <td>{{ player.hero.heroInfo.speed }}</td>
+                                <td>{{ player.hero.influenceSpeedModifier }}</td>
+                            </tr>
+                            <tr>
+                                <td>Positioning</td>
+                                <td>{{ player.player.positioning }}</td>
+                                <td>{{ player.hero.heroInfo.positioning }}</td>
+                                <td>{{ player.hero.influencePositioningModifier }}</td>
+                            </tr>
+                            <tr>
+                                <td>Awareness</td>
+                                <td>{{ player.player.awareness }}</td>
+                                <td>{{ player.hero.heroInfo.awareness }}</td>
+                                <td>{{ player.hero.influenceAwarenessModifier }}</td>
+                            </tr>
+                        </table>
+                        Total: {{ player.hero.influenceTotalModifier }}
+                    </div>
+                </div>
+                <div>
+                    Influence: {{ player.influence }}
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>
