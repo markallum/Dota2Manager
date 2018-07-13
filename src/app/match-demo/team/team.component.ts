@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TeamMatched } from '../../match.model';
+import { TeamInDraft } from '../../models/team.model';
+import { HeroInDraft } from '../../models/hero.model';
 
 @Component({
   selector: 'app-team',
@@ -7,12 +8,21 @@ import { TeamMatched } from '../../match.model';
   styleUrls: ['./team.component.css']
 })
 export class TeamComponent implements OnInit {
-  @Input() Team: TeamMatched;
+  @Input() team: TeamInDraft;
+  @Input() availableHeroes: HeroInDraft[];
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.Team.TeamInfo.Name);
+    console.log(this.team);
+
+    this.team.players
   }
 
+
+
+  onHeroSelect(hero) {
+    hero.isSelected = true;
+    console.log(this.availableHeroes);
+  }
 }

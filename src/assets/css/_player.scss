@@ -1,0 +1,40 @@
+.player-skills__table {
+    td {
+        padding:0 10px 0 0;
+    }
+}
+
+.skill-bar__wrapper {
+    width:170px;
+    height:12px;
+    border:1px solid black;
+}
+
+.skill-bar__seperator-wrapper {
+    position:relative;
+    width:0;
+    height:0;
+}
+
+.skill-bar__seperator {
+    position:absolute;
+    top:0;
+    left:100px;
+    width:1px;
+    height:10px;
+    background:black;
+}
+
+.skill-bar__player-fill {
+    background:green;
+    opacity:0.5;
+    height:100%;
+    float:left;
+}
+
+.skill-bar__hero-fill {
+    background:red;
+    opacity:0.5;
+    height:100%;
+    float:left;
+}

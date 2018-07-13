@@ -8,10 +8,10 @@
 <div class="row">
   <div class="col-xs-6">
     <h2>Radiant</h2>
-    <app-team *ngIf="matchLoaded | async" [Team]="match.teamRadiant"></app-team>
+    <app-team *ngIf="matchLoaded | async" [team]="match.teamRadiant" [availableHeroes]="availableHeroes"></app-team>
   </div>
   <div class="col-xs-6">
     <h2>Dire</h2>
-    <app-team *ngIf="matchLoaded | async" [Team]="match.teamDire"></app-team>
+    <app-team *ngIf="matchLoaded | async" [team]="match.teamDire" [availableHeroes]="availableHeroes"></app-team>
   </div>
 </div>

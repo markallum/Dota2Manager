@@ -1,3 +1,126 @@
-<h4>{{ Team.teamInfo.name }}</h4>
+<h3>{{ team.name }}</h3>
 
-<div *ngFor="let "
+<div *ngFor="let player of team.players" class="player__wrapper">
+<h4>{{ player.name }} ({{ player.age }})</h4>
+
+<div class="row">
+    <div class="col-xs-6">
+        <table class="player-skills__table">
+    <tr>
+        <td>
+            Efficiency
+        </td>
+        <td>
+            <div class="skill-bar__wrapper cf">
+                <div class="skill-bar__seperator-wrapper">
+                    <div class="skill-bar__seperator"></div>
+                </div>
+                
+                <div 
+                    class="skill-bar__player-fill" 
+                    [style.width]="player.efficiency + 'px'"></div>
+                <div 
+                    class="skill-bar__hero-fill" 
+                    *ngIf="player.hero != null"
+                    [style.width]="((player.efficiency / 100) * player.hero.efficiency) * 2 + 'px'"></div>
+            </div>
+
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Poise
+        </td>
+        <td>
+            <div class="skill-bar__wrapper">
+                <div class="skill-bar__seperator-wrapper">
+                    <div class="skill-bar__seperator"></div>
+                </div>
+
+                <div class="skill-bar__player-fill" [style.width]="player.poise + 'px'"></div>
+                <div 
+                    class="skill-bar__hero-fill" 
+                    *ngIf="player.hero != null"
+                    [style.width]="((player.poise / 100) * player.hero.poise) * 2 + 'px'"></div>
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Speed
+        </td>
+        <td>
+            <div class="skill-bar__wrapper">
+                <div class="skill-bar__seperator-wrapper">
+                    <div class="skill-bar__seperator"></div>
+                </div>
+
+                <div class="skill-bar__player-fill" [style.width]="player.speed + 'px'"></div>
+                <div 
+                    class="skill-bar__hero-fill" 
+                    *ngIf="player.hero != null"
+                    [style.width]="((player.speed / 100) * player.hero.speed) * 2 + 'px'"></div>
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Positioning
+        </td>
+        <td>
+            <div class="skill-bar__wrapper">
+                <div class="skill-bar__seperator-wrapper">
+                    <div class="skill-bar__seperator"></div>
+                </div>
+
+                <div class="skill-bar__player-fill" [style.width]="player.positioning + 'px'"></div>
+                <div 
+                    class="skill-bar__hero-fill" 
+                    *ngIf="player.hero != null"
+                    [style.width]="((player.positioning / 100) * player.hero.positioning) * 2 + 'px'"></div>
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Awareness
+        </td>
+        <td>
+            <div class="skill-bar__wrapper">
+                <div class="skill-bar__seperator-wrapper">
+                    <div class="skill-bar__seperator"></div>
+                </div>
+
+                <div class="skill-bar__player-fill" [style.width]="player.awareness + 'px'"></div>
+                <div 
+                    class="skill-bar__hero-fill" 
+                    *ngIf="player.hero != null"
+                    [style.width]="((player.awareness / 100) * player.hero.awareness) * 2 + 'px'"></div>
+            </div>
+        </td>
+    </tr>
+        </table>
+    </div>
+    <div class="col-xs-6">
+        <select (ngModelChange)="onHeroSelect($event)" [(ngModel)]="player.hero">
+            <option 
+                [ngValue]="null" disabled selected>Pick a hero</option>
+            <option 
+                *ngFor="let hero of availableHeroes" 
+                [ngValue]="hero"
+                [disabled]="hero.isSelected"
+                >{{ hero.name }}</option>
+        </select>
+    </div>
+  
+</div>
+
+
+
+
+
+</div>

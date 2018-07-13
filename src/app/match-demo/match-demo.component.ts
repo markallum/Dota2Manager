@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Match } from '../match.model';
 import { TestService } from '../test-service';
+import { Hero } from '../models/hero.model';
+import { Draft } from '../models/draft.model';
 
 @Component({
   selector: 'app-match-demo',
@@ -10,12 +11,14 @@ import { TestService } from '../test-service';
 export class MatchDemoComponent implements OnInit {
 
   matchLoaded: Promise<boolean>;
-  match: Match;
+  match: Draft;
+  availableHeroes: Hero[];
   constructor(private testService: TestService) {
     this.testService.getMatch().subscribe(
-      (data: Match) => {
+      (data: Draft) => {
 
         this.match = data;
+        this.availableHeroes = this.match.availableHeroes;
         this.matchLoaded = Promise.resolve(true);
       }
     );
