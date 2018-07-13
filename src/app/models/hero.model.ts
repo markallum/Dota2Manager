@@ -13,6 +13,7 @@ export interface Hero {
 
 export interface HeroInDraft extends Hero {
     isSelected: boolean;
+    selectedById: number;
 }
 
 export interface HeroInMatch extends Hero {

@@ -28,4 +28,9 @@ export class MatchDemoComponent implements OnInit {
   ngOnInit() {
   }
 
+  playMatch() {
+    //console.log(this.match);
+    this.testService.playMatch(this.match).subscribe((data) => console.log(data));
+  }
+
 }

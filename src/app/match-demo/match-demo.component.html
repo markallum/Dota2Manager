@@ -5,13 +5,29 @@
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="col-xs-6">
-    <h2>Radiant</h2>
-    <app-team *ngIf="matchLoaded | async" [team]="match.teamRadiant" [availableHeroes]="availableHeroes"></app-team>
+<div *ngIf="!matchLoaded">Loading...</div>
+<div *ngIf="matchLoaded | async" class="teams__wrapper">
+  <div class="row">
+    <div class="col-xs-6">
+      <h2>Radiant</h2>
+      <app-team *ngIf="matchLoaded | async" [team]="match.teamRadiant" [availableHeroes]="availableHeroes"></app-team>
+    </div>
+    <div class="col-xs-6">
+      <h2>Dire</h2>
+      <app-team *ngIf="matchLoaded | async" [team]="match.teamDire" [availableHeroes]="availableHeroes"></app-team>
+    </div>
   </div>
-  <div class="col-xs-6">
-    <h2>Dire</h2>
-    <app-team *ngIf="matchLoaded | async" [team]="match.teamDire" [availableHeroes]="availableHeroes"></app-team>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="button-row">
+        <button 
+          type="button" 
+          class="btn btn-lg btn-success"
+          (click)="playMatch()">Play</button>
+      </div>
+      
+    </div>
   </div>
 </div>
+

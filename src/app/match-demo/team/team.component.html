@@ -106,7 +106,9 @@
         </table>
     </div>
     <div class="col-xs-6">
-        <select (ngModelChange)="onHeroSelect($event)" [(ngModel)]="player.hero">
+        <select 
+            (change)="onHeroSelect(player.hero, player.id)"
+            [(ngModel)]="player.hero">
             <option 
                 [ngValue]="null" disabled selected>Pick a hero</option>
             <option 
